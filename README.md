@@ -120,6 +120,17 @@ Configure these secrets in your GitHub repository:
 - `R2_ACCESS_KEY_ID`: Cloudflare R2 access key
 - `R2_SECRET_ACCESS_KEY`: Cloudflare R2 secret key
 
+### Enabling CI/CD
+
+The CI/CD pipeline is disabled by default to prevent failures. To enable it:
+
+1. Configure all required GitHub secrets (see above)
+2. Update your configuration files (zones, backend, etc.)
+3. Edit `.github/workflows/terraform.yml`:
+   - Uncomment the `on:` triggers section
+   - Remove or comment the `workflow_dispatch:` trigger
+4. Test with a manual workflow dispatch first
+
 ## 📝 Managing DNS Records
 
 ### Adding a New Zone

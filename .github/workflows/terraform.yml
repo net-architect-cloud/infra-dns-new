@@ -1,15 +1,20 @@
 name: DNS Infrastructure CI
 
+# CI is disabled by default - uncomment the triggers below after configuring secrets
+# on:
+#   pull_request:
+#     paths:
+#       - '**/*.tf'
+#   push:
+#     branches: [ main ]
+#     paths:
+#       - '**/*.tf'
+#   schedule:
+#     - cron: '17 3 * * *' # Daily drift check (plan only)
+
+# Manual trigger only until secrets are configured
 on:
-  pull_request:
-    paths:
-      - '**/*.tf'
-  push:
-    branches: [ main ]
-    paths:
-      - '**/*.tf'
-  schedule:
-    - cron: '17 3 * * *' # Daily drift check (plan only)
+  workflow_dispatch:
 
 jobs:
   terraform:
