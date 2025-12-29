@@ -96,7 +96,7 @@ jobs:
           EOF
 
       - name: Init
-        run: terraform init -upgrade ${{ env.BACKEND_CONFIG }}
+        run: terraform init -upgrade
 
       - name: Validate
         run: terraform validate
