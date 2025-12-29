@@ -12,20 +12,9 @@ name: DNS Infrastructure CI
 #   schedule:
 #     - cron: '17 3 * * *' # Daily drift check (plan only)
 
-# Manual trigger only until secrets are configured
+# Manual trigger for testing
 on:
   workflow_dispatch:
-    inputs:
-      backend:
-        description: 'Backend to use'
-        required: false
-        default: 'local'
-        type: choice
-        options:
-        - local
-        - ovh-object-storage
-        - terraform-cloud
-        - aws-s3
 
 jobs:
   terraform:
@@ -69,11 +58,6 @@ jobs:
         with:
           terraform_version: 1.9.5
           terraform_wrapper: false
-
-      - name: Setup backend config
-        run: |
-          echo "Using Terraform Cloud backend"
-          echo "BACKEND_CONFIG=" >> $GITHUB_ENV
 
       - name: Create terraform.tfvars
         run: |
