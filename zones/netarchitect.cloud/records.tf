@@ -1,6 +1,6 @@
 variable "zone_name" {
   type    = string
-  default = "example-ovh.com"
+  default = "netarchitect.cloud"
 }
 
 variable "ovh_endpoint" {
