@@ -1,4 +1,4 @@
-module "netarchitect.cloud" {
+module "netarchitect_cloud" {
   source = "./zones/netarchitect.cloud"
 
   providers = {
