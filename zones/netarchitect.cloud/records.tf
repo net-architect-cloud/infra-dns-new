@@ -21,4 +21,12 @@ resource "ovh_domain_zone_record" "auth" {
   ttl       = 3600
 }
 
+resource "ovh_domain_zone_record" "grafana" {
+  zone      = data.ovh_domain_zone.this.name
+  fieldtype = "A"
+  subdomain = "grafana"
+  target    = "135.125.175.79"
+  ttl       = 3600
+}
+
 # Note: OVH provider does not have a "refresh" resource - changes are applied automatically
