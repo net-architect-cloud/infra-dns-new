@@ -103,14 +103,7 @@ jobs:
 
       - name: Plan (PR & drift)
         if: github.event_name != 'push' || github.ref != 'refs/heads/main'
-        run: terraform plan -out=tfplan
-
-      - name: Upload plan (PR)
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: tfplan
-          path: tfplan
+        run: terraform plan
 
       - name: Apply (main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
