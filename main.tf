@@ -1,12 +1,12 @@
 # Main configuration - calling zone modules
 
-module "example_cloudflare_com" {
-  source = "./zones/example-cloudflare.com"
+#module "example_cloudflare_com" {
+#  source = "./zones/example-cloudflare.com"
 
-  providers = {
-    cloudflare = cloudflare
-  }
-}
+#  providers = {
+#    cloudflare = cloudflare
+#  }
+#}
 
 module "example_ovh_com" {
   source = "./zones/example-ovh.com"
@@ -16,13 +16,13 @@ module "example_ovh_com" {
   }
 }
 
-module "example_infomaniak_com" {
-  source = "./zones/example-infomaniak.com"
+# module "example_infomaniak_com" {
+#  source = "./zones/example-infomaniak.com"
 
-  providers = {
-    infomaniak = infomaniak
-  }
-}
+#  providers = {
+#    infomaniak = infomaniak
+#  }
+#}
 
 # module "another_domain_com" {
 #   source = "./zones/another-domain.com"
