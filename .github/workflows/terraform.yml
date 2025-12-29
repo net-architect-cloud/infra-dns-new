@@ -72,25 +72,8 @@ jobs:
 
       - name: Setup backend config
         run: |
-          case "${{ github.event.inputs.backend || 'local' }}" in
-            "ovh-object-storage")
-              echo "Using OVH Object Storage backend"
-              BACKEND_CONFIG="-backend-config=backends/ovh-backend.hcl"
-              ;;
-            "terraform-cloud")
-              echo "Using Terraform Cloud backend"
-              BACKEND_CONFIG="-backend-config=backends/terraform-cloud.hcl"
-              ;;
-            "aws-s3")
-              echo "Using AWS S3 backend"
-              BACKEND_CONFIG="-backend-config=backends/aws-s3.hcl"
-              ;;
-            *)
-              echo "Using Local backend (default)"
-              BACKEND_CONFIG=""
-              ;;
-          esac
-          echo "BACKEND_CONFIG=$BACKEND_CONFIG" >> $GITHUB_ENV
+          echo "Using Terraform Cloud backend"
+          echo "BACKEND_CONFIG=" >> $GITHUB_ENV
 
       - name: Create terraform.tfvars
         run: |

@@ -16,10 +16,13 @@ terraform {
     }
   }
 
-  # Backend Configuration - Local Storage (Default)
-  # To use another backend, use: terraform init -backend-config=backends/<name>.hcl
-  backend "local" {
-    path = "./terraform.tfstate"
+  # Backend Configuration - Terraform Cloud
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "netarchitect"
+    workspaces {
+      name = "dns-infrastructure"
+    }
   }
 
   # Alternative Backends (use with -backend-config) :
