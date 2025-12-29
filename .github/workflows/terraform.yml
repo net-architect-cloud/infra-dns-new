@@ -71,12 +71,6 @@ jobs:
           ovh_application_secret = "${{ secrets.OVH_APPLICATION_SECRET || '' }}"
           ovh_consumer_key = "${{ secrets.OVH_CONSUMER_KEY || '' }}"
           ovh_endpoint = "${{ secrets.OVH_ENDPOINT || 'ovh-eu' }}"
-          
-          # Backend Storage
-          ovh_access_key = "${{ secrets.OVH_ACCESS_KEY || '' }}"
-          ovh_secret_key = "${{ secrets.OVH_SECRET_KEY || '' }}"
-          aws_access_key = "${{ secrets.AWS_ACCESS_KEY_ID || '' }}"
-          aws_secret_key = "${{ secrets.AWS_SECRET_ACCESS_KEY || '' }}"
           EOF
 
       - name: Init
