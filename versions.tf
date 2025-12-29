@@ -6,19 +6,26 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "~> 5.11"
     }
+    ovh = {
+      source  = "ovh/ovh"
+      version = "~> 2.0"
+    }
+    infomaniak = {
+      source  = "infomaniak/infomaniak"
+      version = "~> 2.0"
+    }
   }
 
-  backend "s3" {
-    bucket = "your-terraform-state-bucket"  # Replace with your R2 bucket name
-    key    = "dns-infra/terraform.tfstate"
-    endpoints = {
-      s3 = "https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com"  # Replace with your Account ID
-    }
-    region = "us-east-1"
-    skip_credentials_validation = true
-    skip_region_validation      = true
-    skip_requesting_account_id  = true
-    skip_metadata_api_check     = true
-    skip_s3_checksum            = true
+  # Backend Configuration - Local Storage (Default)
+  # For other backend options, see: ./backends/README.md
+  backend "local" {
+    path = "./terraform.tfstate"
   }
+
+  # Alternative Backends (uncomment to use):
+  # backend "s3" { ... }               # Cloudflare R2
+  # backend "remote" { ... }           # Terraform Cloud
+  # backend "s3" { ... }               # AWS S3
+  # backend "azurerm" { ... }           # Azure Blob Storage
+  # backend "gcs" { ... }              # Google Cloud Storage
 }
